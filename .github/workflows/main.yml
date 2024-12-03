@@ -3,6 +3,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  matrix-job:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        id: [0,1,2,3,4]
+    steps:
+      - run: exit 0
   build:
     if: github.event_name != 'workflow_dispatch'
     runs-on: ubuntu-latest
